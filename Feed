@@ -1,0 +1,10 @@
+local args = {
+    [1] = {
+        [1] = {
+            [1] = "\11",
+            [2] = 9999999988
+        }
+    }
+}
+
+game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
