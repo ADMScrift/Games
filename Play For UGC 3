@@ -1,0 +1,62 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+local PlayForUGCTab = Window:MakeTab({
+	Name = "Play For UGC",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+PlayForUGCTab:AddButton({
+	Name = "Instant Task 400 min",
+	Callback = function()
+		_G.AutoTask400Min = true  while true do    wait(0.00000001)    if _G.AutoTask400Min == true then      local args = { [1] = "Click" } game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ForServer"):WaitForChild("TaskProgress"):FireServer(unpack(args))    end end
+	end    
+})
+
+PlayForUGCTab:AddButton({
+	Name = "Instant Task 4 Min",
+	Callback = function()
+      _G.AutoTask4Min = true    while true do       wait(0.00000001)       if _G.AutoTask4Min == true then         local args = {     [1] = "Freeze",     [2] = 300 }  game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ForServer"):WaitForChild("TaskProgress"):FireServer(unpack(args))    end end
+	end    
+})
+
+PlayForUGCTab:AddButton({
+	Name = "Instant 2k Stuts",
+	Callback = function()
+      _G.Stust2k = true    while true do       wait(0.00000001)       if _G.Stust2k == true then         local args = {     [1] = 2000 }  game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ForServer"):WaitForChild("UpdQuest4"):FireServer(unpack(args))    end end
+	end    
+})
+
+PlayForUGCTab:AddButton({
+	Name = "Auto Spin",
+	Callback = function()
+      _G.AutoSpin = true    while true do       wait(0.00000001)       if _G.AutoSpin == true then         local args = {     [1] = game:GetService("Players").LocalPlayer:WaitForChild("SpinWheel") }  game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ForServer"):WaitForChild("AttemptSpin"):FireServer(unpack(args))    end end
+	end    
+})
+
+PlayForUGCTab:AddButton({
+	Name = "Intant Jump",
+	Callback = function()
+      _G.AutoJump = true    while true do       wait(0.00000001)       if _G.AutoJump == true then         game.Players.LocalPlayer.Character.Humanoid.Jump = true    end end
+	end    
+})
+
+
+PlayForUGCTab:AddButton({
+	Name = "Desabilitar tudo",
+	Callback = function()
+      _G.AutoTask400Min = false
+      wait(0.2)
+      _G.AutoTask4Min = false
+      wait(0.2)
+      _G.Stust2k = false
+      wait(0.2)
+      _G.AutoSpin = false
+      wait(0.2)
+      _G.AutoJump = false
+	end    
+})
+
