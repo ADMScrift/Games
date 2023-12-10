@@ -1,0 +1,125 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+local PlayForUGCTab = Window:MakeTab({
+	Name = "Play For UGC",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+
+-- valores
+
+_G.AutoTask400Min
+_G.AutoTask4Min
+_G.Stust2k
+_G.AutoSpin
+_G.AutoJump
+
+
+--funções
+
+--auto task 400 min
+
+_G.AutoTask400Min = true
+function AutoTask400Min()
+   while true do
+      wait(0.00000001)
+      if _G.AutoTask400Min == true then
+        local args = { [1] = "Click" } game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ForServer"):WaitForChild("TaskProgress"):FireServer(unpack(args))
+      end
+  end
+
+
+--Task 4 min
+function AutoTask4Mim()
+   _G.AutoTask4Min = true
+   while true do
+      wait(0.00000001)
+      if _G.AutoTask4Min == true then
+        local args = {     [1] = "Freeze",     [2] = 300 }  game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ForServer"):WaitForChild("TaskProgress"):FireServer(unpack(args))
+   end
+end
+
+
+--2k stust
+function Stust2k()
+   _G.Stust2k = true
+   while true do
+      wait(0.00000001)
+      if _G.Stust2k == true then
+        local args = {     [1] = 2000 }  game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ForServer"):WaitForChild("UpdQuest4"):FireServer(unpack(args))
+   end
+end
+
+
+
+--Spin
+function AutoSpin()
+   _G.AutoSpin = true
+   while true do
+      wait(0.00000001)
+      if _G.AutoSpin == true then
+        local args = {     [1] = game:GetService("Players").LocalPlayer:WaitForChild("SpinWheel") }  game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ForServer"):WaitForChild("AttemptSpin"):FireServer(unpack(args))
+   end
+end
+
+
+
+--Jump
+function AutoJump()
+   _G.AutoJump = true
+   while true do
+      wait(0.00000001)
+      if _G.AutoJump == true then
+        game.Players.LocalPlayer.Character.Humanoid.Jump = true
+   end
+end
+
+
+PlayForUGCTab:AddToggle({
+	Name = "Instant Task 400 min",
+	Default = false,
+	Callback = function(Value)
+		_G.AutoTask400Min = value
+      AutoTask400Min() 
+	end    
+})
+
+PlayForUGCTab:AddToggle({
+	Name = "Instant Task 4 Min",
+	Default = false,
+	Callback = function(Value)
+		_G.AutoTask4Min = value
+      AutoTask4Min() 
+	end    
+})
+
+PlayForUGCTab:AddToggle({
+	Name = "instant 2k stust",
+	Default = false,
+	Callback = function(Value)
+		_G.Stust2k = value
+      Stust2k() 
+	end    
+})
+
+PlayForUGCTab:AddToggle({
+	Name = "Auto Spin",
+	Default = false,
+	Callback = function(Value)
+		_G.AutoSpin = value
+      AutoSpin() 
+	end    
+})
+
+PlayForUGCTab:AddToggle({
+	Name = "Auto Jump",
+	Default = false,
+	Callback = function(Value)
+		_G.AutoJump = value
+      AutoJump() 
+	end    
+})
